@@ -21,6 +21,7 @@ namespace MvnoSwitcher
             ApnTextField.Text = Config.Apn;
             UsernameTextField.Text = Config.Username;
             PasswordText.Text = Config.Password;
+            AuthenticationTypeSegmentedControl.SelectedSegment = Config.AuthenticationType == "PAP" ? 0 : 1;
             Title = string.IsNullOrEmpty(Config.Name) ? "Config" : Config.Name;
         }
 
