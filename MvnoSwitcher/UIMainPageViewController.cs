@@ -9,6 +9,7 @@ namespace MvnoSwitcher
     {
         const string TableCell = "TableCell";
 
+        private bool _editMode;
         private UIBarButtonItem _add;
         private UIBarButtonItem _done;
         private UIBarButtonItem _edit;
@@ -17,18 +18,14 @@ namespace MvnoSwitcher
         {
             _add = new UIBarButtonItem(UIBarButtonSystemItem.Add, (s, e) =>
             {
-                var storyboard = UIStoryboard.FromName("Main", null);
-                var viewController = (MSEditPageViewController)storyboard.InstantiateViewController("EditPage");
-                viewController.IsNew = true;
-                viewController.Config = new ConfigGenerator();
-                viewController.Index = -1;
-                NavigationController.PushViewController(viewController, true);
+                OpenDetails(-1); // new
             });
             _done = new UIBarButtonItem(UIBarButtonSystemItem.Done, (s, e) =>
             {
                 TableView.SetEditing(false, true);
                 NavigationItem.LeftBarButtonItem = _add;
                 NavigationItem.RightBarButtonItem = _edit;
+                _editMode = false;
             });
             _edit = new UIBarButtonItem(UIBarButtonSystemItem.Edit, (s, e) =>
             {
@@ -39,6 +36,7 @@ namespace MvnoSwitcher
                 TableView.SetEditing(true, true);
                 NavigationItem.LeftBarButtonItem = null;
                 NavigationItem.RightBarButtonItem = _done;
+                _editMode = true;
             });
             NavigationItem.LeftBarButtonItem = _add;
             NavigationItem.RightBarButtonItem = _edit;
@@ -58,28 +56,26 @@ namespace MvnoSwitcher
             return cell;
         }
 
-        public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, NSIndexPath indexPath)
-        {
-            switch (editingStyle)
-            {
-                case UITableViewCellEditingStyle.Delete:
-                    AppDelegate.Current.AppConfig.Apns.RemoveAt(indexPath.Row);
-                    AppDelegate.Current.AppConfig.Save();
-                    tableView.DeleteRows(new[] { indexPath }, UITableViewRowAnimation.Fade);
-                    break;
-                default:
-                    break;
-            }
-        }
-
         public override bool CanEditRow(UITableView tableView, NSIndexPath indexPath)
         {
             return true;
         }
 
-        public override string TitleForDeleteConfirmation(UITableView tableView, NSIndexPath indexPath)
+        public override UITableViewRowAction[] EditActionsForRow(UITableView tableView, NSIndexPath indexPath)
         {
-            return "Delete";
+            var del = UITableViewRowAction.Create(UITableViewRowActionStyle.Destructive, "Delete", (_, i) =>
+            {
+                AppDelegate.Current.AppConfig.Apns.RemoveAt(i.Row);
+                AppDelegate.Current.AppConfig.Save();
+                tableView.DeleteRows(new[] { i }, UITableViewRowAnimation.Left);
+            });
+            var edit = UITableViewRowAction.Create(UITableViewRowActionStyle.Normal, "Edit", (_, i) =>
+            {
+                OpenDetails(i.Row);
+            });
+            return _editMode
+                ? new[] { del }
+                : new[] { del, edit };
         }
 
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
@@ -88,12 +84,7 @@ namespace MvnoSwitcher
             if (tableView.Editing)
             {
                 // open details
-                var storyboard = UIStoryboard.FromName("Main", null);
-                var viewController = (MSEditPageViewController)storyboard.InstantiateViewController("EditPage");
-                viewController.IsNew = false;
-                viewController.Config = AppDelegate.Current.AppConfig.Apns[indexPath.Row];
-                viewController.Index = indexPath.Row;
-                NavigationController.PushViewController(viewController, true);
+                OpenDetails(indexPath.Row);
             }
             else
             {
@@ -103,6 +94,16 @@ namespace MvnoSwitcher
                 var url = new NSUrl($"http://127.0.0.1:18080/ondemand?{argString}");
                 UIApplication.SharedApplication.OpenUrl(url);
             }
+        }
+
+        private void OpenDetails(int index)
+        {
+            var storyboard = UIStoryboard.FromName("Main", null);
+            var viewController = (MSEditPageViewController)storyboard.InstantiateViewController("EditPage");
+            viewController.IsNew = index < 0;
+            viewController.Config = index < 0 ? new ConfigGenerator() : AppDelegate.Current.AppConfig.Apns[index];
+            viewController.Index = index;
+            NavigationController.PushViewController(viewController, true);
         }
     }
 }
