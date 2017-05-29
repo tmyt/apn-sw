@@ -13,36 +13,13 @@ namespace MvnoSwitcher
         public AppConfig()
         {
             Apns = new List<ConfigGenerator>();
-            Apns.Add(new ConfigGenerator
-            {
-                Name = "IIJmio",
-                AuthenticationType = "CHAP",
-                Apn = "iijmio.jp",
-                Username = "mio@iij",
-                Password = "iij",
-            });
-            Apns.Add(new ConfigGenerator
-            {
-                Name = "DMM Mobile",
-                AuthenticationType = "CHAP",
-                Apn = "dmm.com",
-                Username = "a",
-                Password = "a",
-            });
-            Apns.Add(new ConfigGenerator
-            {
-                Name = "DMM Mobile (vmobile)",
-                AuthenticationType = "CHAP",
-                Apn = "vmobile.jp",
-                Username = "a",
-                Password = "a",
-            });
         }
 
         public void Save()
         {
             var json = JsonConvert.SerializeObject(Apns);
-            using (var writer = new StreamWriter("./apns.json"))
+            var dir = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            using (var writer = new StreamWriter(Path.Combine(dir, "apns.json")))
             {
                 writer.Write(json);
             }
@@ -52,10 +29,10 @@ namespace MvnoSwitcher
         {
             try
             {
-                using (var reader = new StreamReader("./apns.json"))
+                var dir = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                using (var reader = new StreamReader(Path.Combine(dir, "apns.json")))
                 {
                     var apns = JsonConvert.DeserializeObject<ConfigGenerator[]>(reader.ReadToEnd());
-                    Apns.Clear();
                     Apns.AddRange(apns);
                 }
             }

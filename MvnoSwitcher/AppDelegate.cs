@@ -31,6 +31,7 @@ namespace MvnoSwitcher
             // If not required for your application you can safely delete this method
             SetupHttpListener();
             AppConfig = new AppConfig();
+            AppConfig.Load();
             return true;
         }
 
