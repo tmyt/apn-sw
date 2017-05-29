@@ -5,7 +5,7 @@ using UIKit;
 
 namespace MvnoSwitcher
 {
-    public partial class UIMainPageViewController : UITableViewController
+    public partial class MSMainPageViewController : UITableViewController
     {
         const string TableCell = "TableCell";
 
@@ -14,7 +14,7 @@ namespace MvnoSwitcher
         private UIBarButtonItem _doneButton;
         private UIBarButtonItem _editButton;
 
-        public UIMainPageViewController(IntPtr handle) : base(handle)
+        public MSMainPageViewController(IntPtr handle) : base(handle)
         {
             _addButton = new UIBarButtonItem(UIBarButtonSystemItem.Add, (s, e) =>
             {

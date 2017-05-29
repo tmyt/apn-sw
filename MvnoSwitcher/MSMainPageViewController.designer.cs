@@ -12,7 +12,7 @@ using UIKit;
 namespace MvnoSwitcher
 {
     [Register ("UIMainPageViewController")]
-    partial class UIMainPageViewController
+    partial class MSMainPageViewController
     {
         void ReleaseDesignerOutlets ()
         {

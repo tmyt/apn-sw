@@ -95,14 +95,18 @@
     <Compile Include="MSEditPageViewController.designer.cs">
       <DependentUpon>MSEditPageViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="MSMainPageViewController_.cs" />
+    <Compile Include="MSMainPageViewController_.designer.cs">
+      <DependentUpon>MSMainPageViewController_.cs</DependentUpon>
+    </Compile>
     <Compile Include="MSNavigationViewController.cs" />
     <Compile Include="MSNavigationViewController.designer.cs">
       <DependentUpon>MSNavigationViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Plist\PlistXml.cs" />
-    <Compile Include="UIMainPageViewController.cs" />
-    <Compile Include="UIMainPageViewController.designer.cs">
-      <DependentUpon>UIMainPageViewController.cs</DependentUpon>
+    <Compile Include="MSMainPageViewController.cs" />
+    <Compile Include="MSMainPageViewController.designer.cs">
+      <DependentUpon>MSMainPageViewController.cs</DependentUpon>
     </Compile>
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />

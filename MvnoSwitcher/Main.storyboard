@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="29">
             <objects>
-                <tableViewController id="30" sceneMemberID="viewController" customClass="UIMainPageViewController">
+                <tableViewController id="30" sceneMemberID="viewController" customClass="MSMainPageViewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="32" allowsSelectionDuringEditing="YES">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
