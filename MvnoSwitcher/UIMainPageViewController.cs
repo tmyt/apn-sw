@@ -7,6 +7,8 @@ namespace MvnoSwitcher
 {
     public partial class UIMainPageViewController : UITableViewController
     {
+        const string TableCell = "TableCell";
+
         private UIBarButtonItem _add;
         private UIBarButtonItem _done;
         private UIBarButtonItem _edit;
@@ -49,15 +51,10 @@ namespace MvnoSwitcher
 
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
-            var cell = tableView.DequeueReusableCell("TableCell");
-            if (cell == null)
-            {
-                cell = new UITableViewCell(UITableViewCellStyle.Subtitle, "TableCell");
-            }
+            var cell = tableView.DequeueReusableCell(TableCell);
             var apn = AppDelegate.Current.AppConfig.Apns[indexPath.Row];
             cell.TextLabel.Text = apn.Name;
             cell.DetailTextLabel.Text = apn.Apn;
-            cell.EditingAccessory = UITableViewCellAccessory.DisclosureIndicator;
             return cell;
         }
 
