@@ -36,6 +36,10 @@ namespace MvnoSwitcher
         [Action ("SaveTapped:")]
         partial void SaveTapped (Foundation.NSObject sender);
 
+        [Action ("NameTextFieldChanged:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void NameTextFieldChanged (UIKit.UITextField sender);
+
         void ReleaseDesignerOutlets ()
         {
             if (ApnTextField != null) {

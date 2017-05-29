@@ -108,6 +108,9 @@
                                                     <constraints>
                                                         <constraint id="669" firstItem="655" firstAttribute="height" constant="43"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="NameTextFieldChanged:" destination="256" id="859" eventType="editingChanged"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>

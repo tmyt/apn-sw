@@ -6,7 +6,7 @@ namespace MvnoSwitcher
 {
     public partial class MSEditPageViewController : UITableViewController
     {
-        public MSEditPageViewController (IntPtr handle) : base (handle)
+        public MSEditPageViewController(IntPtr handle) : base(handle)
         {
         }
 
@@ -21,6 +21,7 @@ namespace MvnoSwitcher
             ApnTextField.Text = Config.Apn;
             UsernameTextField.Text = Config.Username;
             PasswordText.Text = Config.Password;
+            Title = string.IsNullOrEmpty(Config.Name) ? "Config" : Config.Name;
         }
 
         partial void SaveTapped(Foundation.NSObject sender)
@@ -40,6 +41,12 @@ namespace MvnoSwitcher
                 appConfig.Apns.Add(Config);
             }
             appConfig.Save();
+        }
+
+        partial void NameTextFieldChanged(UITextField sender)
+        {
+            var text = NameTextField.Text;
+            Title = string.IsNullOrEmpty(text) ? "Config" : text;
         }
     }
 }
