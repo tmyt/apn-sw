@@ -1,20 +1,25 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="39">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="39">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--APNs-->
         <scene sceneID="29">
             <objects>
-                <tableViewController id="30" sceneMemberID="viewController" customClass="UIMainPageViewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="32" allowsSelectionDuringEditing="YES">
+                <tableViewController id="30" customClass="UIMainPageViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="32">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="35" editingAccessoryType="disclosureIndicator" style="IBUITableViewCellStyleSubtitle" textLabel="728" detailTextLabel="729" reuseIdentifier="TableCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" editingAccessoryType="disclosureIndicator" textLabel="728" detailTextLabel="729" style="IBUITableViewCellStyleSubtitle" id="35">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="35" id="36">
@@ -38,7 +43,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue id="567" destination="256" kind="show" trigger="accessoryAction"/>
+                                    <segue destination="256" kind="show" identifier="" trigger="accessoryAction" id="567"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -53,34 +58,32 @@
             </objects>
             <point key="canvasLocation" x="428" y="-47"/>
         </scene>
+        <!--Navigation View Controller-->
         <scene sceneID="38">
             <objects>
-                <navigationController id="39" sceneMemberID="viewController" customClass="MSNavigationViewController">
+                <navigationController id="39" customClass="MSNavigationViewController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="41">
                         <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue id="386" destination="30" kind="relationship" relationship="rootViewController"/>
+                        <segue destination="30" kind="relationship" relationship="rootViewController" id="386"/>
                     </connections>
-                    <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="42" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-352" y="-51"/>
         </scene>
+        <!--Title-->
         <scene sceneID="255">
             <objects>
-                <tableViewController id="256" sceneMemberID="viewController" storyboardIdentifier="EditPage" customClass="MSEditPageViewController">
+                <tableViewController storyboardIdentifier="EditPage" id="256" customClass="MSEditPageViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="257">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="256" id="258"/>
-                            <outlet property="delegate" destination="256" id="259"/>
-                        </connections>
                         <sections>
                             <tableViewSection id="264">
                                 <cells>
@@ -91,100 +94,100 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="648" translatesAutoresizingMaskIntoConstraints="NO">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="648">
                                                     <rect key="frame" x="21" y="0.0" width="105" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="666"/>
+                                                        <constraint firstAttribute="width" constant="105" id="674"/>
+                                                        <constraint firstAttribute="width" constant="105" id="695"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
-                                                    <constraints>
-                                                        <constraint id="666" firstItem="648" firstAttribute="height" constant="43"/>
-                                                        <constraint id="674" firstAttribute="width" constant="105"/>
-                                                        <constraint id="695" firstItem="648" firstAttribute="width" constant="105"/>
-                                                    </constraints>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="655" translatesAutoresizingMaskIntoConstraints="NO" placeholder="placeholder">
-                                                    <rect key="frame" x="134" y="0.0" width="450" height="43"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="placeholder" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="655" misplaced="YES">
+                                                    <rect key="frame" x="134" y="0.0" width="225" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="669"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
-                                                    <constraints>
-                                                        <constraint id="669" firstItem="655" firstAttribute="height" constant="43"/>
-                                                    </constraints>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint id="672" firstItem="570" firstAttribute="bottom" secondItem="648" secondAttribute="bottom"/>
-                                                <constraint id="675" firstItem="570" firstAttribute="bottom" secondItem="655" secondAttribute="bottom"/>
-                                                <constraint id="676" firstItem="570" firstAttribute="trailing" secondItem="655" secondAttribute="trailing" constant="16"/>
-                                                <constraint id="694" firstItem="655" firstAttribute="leading" secondItem="648" secondAttribute="centerX" constant="60"/>
-                                                <constraint id="696" firstItem="648" firstAttribute="bottom" secondItem="570" secondAttribute="bottom"/>
-                                                <constraint id="697" firstItem="648" firstAttribute="leading" secondItem="570" secondAttribute="leading" constant="21"/>
+                                                <constraint firstAttribute="bottom" secondItem="648" secondAttribute="bottom" id="672"/>
+                                                <constraint firstAttribute="bottom" secondItem="655" secondAttribute="bottom" id="675"/>
+                                                <constraint firstAttribute="trailing" secondItem="655" secondAttribute="trailing" constant="16" id="676"/>
+                                                <constraint firstItem="655" firstAttribute="leading" secondItem="648" secondAttribute="centerX" constant="60" id="694"/>
+                                                <constraint firstItem="648" firstAttribute="bottom" secondItem="570" secondAttribute="bottom" id="696"/>
+                                                <constraint firstItem="648" firstAttribute="leading" secondItem="570" secondAttribute="leading" constant="21" id="697"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="603" rowHeight="44">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="603">
                                         <rect key="frame" x="0.0" y="44" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="603" id="604">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="615" translatesAutoresizingMaskIntoConstraints="NO">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="615">
                                                     <rect key="frame" x="21" y="0.0" width="105" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="667"/>
+                                                        <constraint firstAttribute="width" constant="105" id="680"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
-                                                    <constraints>
-                                                        <constraint id="667" firstItem="615" firstAttribute="height" constant="43"/>
-                                                        <constraint id="680" firstAttribute="width" constant="105"/>
-                                                    </constraints>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="616" translatesAutoresizingMaskIntoConstraints="NO" placeholder="placeholder">
-                                                    <rect key="frame" x="134" y="0.0" width="450" height="43"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="placeholder" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="616" misplaced="YES">
+                                                    <rect key="frame" x="134" y="0.0" width="225" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="668"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
-                                                    <constraints>
-                                                        <constraint id="668" firstItem="616" firstAttribute="height" constant="43"/>
-                                                    </constraints>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint id="678" firstItem="604" firstAttribute="bottom" secondItem="615" secondAttribute="bottom"/>
-                                                <constraint id="679" firstItem="615" firstAttribute="leading" secondItem="604" secondAttribute="leading" constant="21"/>
-                                                <constraint id="681" firstItem="604" firstAttribute="bottom" secondItem="616" secondAttribute="bottom"/>
-                                                <constraint id="682" firstItem="604" firstAttribute="trailing" secondItem="616" secondAttribute="trailing" constant="16"/>
-                                                <constraint id="698" firstItem="616" firstAttribute="leading" secondItem="615" secondAttribute="centerX" constant="60"/>
+                                                <constraint firstAttribute="bottom" secondItem="615" secondAttribute="bottom" id="678"/>
+                                                <constraint firstItem="615" firstAttribute="leading" secondItem="604" secondAttribute="leading" constant="21" id="679"/>
+                                                <constraint firstAttribute="bottom" secondItem="616" secondAttribute="bottom" id="681"/>
+                                                <constraint firstAttribute="trailing" secondItem="616" secondAttribute="trailing" constant="16" id="682"/>
+                                                <constraint firstItem="616" firstAttribute="leading" secondItem="615" secondAttribute="centerX" constant="60" id="698"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="605" rowHeight="44">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="605">
                                         <rect key="frame" x="0.0" y="88" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="605" id="606">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="652" translatesAutoresizingMaskIntoConstraints="NO">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="652">
                                                     <rect key="frame" x="21" y="0.0" width="105" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="105" id="707"/>
+                                                        <constraint firstAttribute="height" constant="43" id="708"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
-                                                    <constraints>
-                                                        <constraint id="707" firstAttribute="width" constant="105"/>
-                                                        <constraint id="708" firstAttribute="height" constant="43"/>
-                                                    </constraints>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="656" translatesAutoresizingMaskIntoConstraints="NO" placeholder="placeholder">
-                                                    <rect key="frame" x="134" y="0.0" width="450" height="43"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="placeholder" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="656" misplaced="YES">
+                                                    <rect key="frame" x="134" y="0.0" width="225" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="670"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
-                                                    <constraints>
-                                                        <constraint id="670" firstItem="656" firstAttribute="height" constant="43"/>
-                                                    </constraints>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint id="684" firstItem="606" firstAttribute="bottom" secondItem="656" secondAttribute="bottom"/>
-                                                <constraint id="685" firstItem="606" firstAttribute="trailing" secondItem="656" secondAttribute="trailing" constant="16"/>
-                                                <constraint id="705" firstItem="652" firstAttribute="leading" secondItem="606" secondAttribute="leading" constant="21"/>
-                                                <constraint id="706" firstItem="606" firstAttribute="bottom" secondItem="652" secondAttribute="bottom"/>
-                                                <constraint id="717" firstItem="656" firstAttribute="leading" secondItem="652" secondAttribute="centerX" constant="60"/>
+                                                <constraint firstAttribute="bottom" secondItem="656" secondAttribute="bottom" id="684"/>
+                                                <constraint firstAttribute="trailing" secondItem="656" secondAttribute="trailing" constant="16" id="685"/>
+                                                <constraint firstItem="652" firstAttribute="leading" secondItem="606" secondAttribute="leading" constant="21" id="705"/>
+                                                <constraint firstAttribute="bottom" secondItem="652" secondAttribute="bottom" id="706"/>
+                                                <constraint firstItem="656" firstAttribute="leading" secondItem="652" secondAttribute="centerX" constant="60" id="717"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -195,30 +198,30 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="653" translatesAutoresizingMaskIntoConstraints="NO">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="653">
                                                     <rect key="frame" x="21" y="0.0" width="105" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="105" id="711"/>
+                                                        <constraint firstAttribute="height" constant="43" id="712"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
-                                                    <constraints>
-                                                        <constraint id="711" firstAttribute="width" constant="105"/>
-                                                        <constraint id="712" firstAttribute="height" constant="43"/>
-                                                    </constraints>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="657" translatesAutoresizingMaskIntoConstraints="NO" placeholder="placeholder">
-                                                    <rect key="frame" x="134" y="0.0" width="450" height="43"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="placeholder" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="657" misplaced="YES">
+                                                    <rect key="frame" x="134" y="0.0" width="225" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="671"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
-                                                    <constraints>
-                                                        <constraint id="671" firstItem="657" firstAttribute="height" constant="43"/>
-                                                    </constraints>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint id="687" firstItem="608" firstAttribute="bottom" secondItem="657" secondAttribute="bottom"/>
-                                                <constraint id="688" firstItem="608" firstAttribute="trailing" secondItem="657" secondAttribute="trailing" constant="16"/>
-                                                <constraint id="709" firstItem="653" firstAttribute="leading" secondItem="608" secondAttribute="leading" constant="21"/>
-                                                <constraint id="710" firstItem="608" firstAttribute="bottom" secondItem="653" secondAttribute="bottom"/>
-                                                <constraint id="718" firstItem="657" firstAttribute="leading" secondItem="653" secondAttribute="centerX" constant="60"/>
+                                                <constraint firstAttribute="bottom" secondItem="657" secondAttribute="bottom" id="687"/>
+                                                <constraint firstAttribute="trailing" secondItem="657" secondAttribute="trailing" constant="16" id="688"/>
+                                                <constraint firstItem="653" firstAttribute="leading" secondItem="608" secondAttribute="leading" constant="21" id="709"/>
+                                                <constraint firstAttribute="bottom" secondItem="653" secondAttribute="bottom" id="710"/>
+                                                <constraint firstItem="657" firstAttribute="leading" secondItem="653" secondAttribute="centerX" constant="60" id="718"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -229,43 +232,60 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="654" translatesAutoresizingMaskIntoConstraints="NO">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="654">
                                                     <rect key="frame" x="21" y="0.0" width="105" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="105" id="715"/>
+                                                        <constraint firstAttribute="height" constant="43" id="716"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
-                                                    <constraints>
-                                                        <constraint id="715" firstAttribute="width" constant="105"/>
-                                                        <constraint id="716" firstAttribute="height" constant="43"/>
-                                                    </constraints>
                                                 </label>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="662" misplaced="YES">
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="662">
                                                     <rect key="frame" x="134" y="7" width="121" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="665"/>
+                                                    </constraints>
                                                     <segments>
                                                         <segment title="PAP"/>
                                                         <segment title="CHAP"/>
                                                     </segments>
-                                                    <constraints>
-                                                        <constraint id="665" firstItem="662" firstAttribute="height" constant="28"/>
-                                                    </constraints>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
-                                                <constraint id="691" firstItem="662" firstAttribute="top" secondItem="610" secondAttribute="top" constant="7"/>
-                                                <constraint id="713" firstItem="654" firstAttribute="leading" secondItem="610" secondAttribute="leading" constant="21"/>
-                                                <constraint id="714" firstItem="610" firstAttribute="bottom" secondItem="654" secondAttribute="bottom"/>
-                                                <constraint id="720" firstItem="662" firstAttribute="leading" secondItem="654" secondAttribute="centerX" constant="60"/>
+                                                <constraint firstItem="662" firstAttribute="top" secondItem="610" secondAttribute="top" constant="7" id="691"/>
+                                                <constraint firstItem="654" firstAttribute="leading" secondItem="610" secondAttribute="leading" constant="21" id="713"/>
+                                                <constraint firstAttribute="bottom" secondItem="654" secondAttribute="bottom" id="714"/>
+                                                <constraint firstItem="662" firstAttribute="leading" secondItem="654" secondAttribute="centerX" constant="60" id="720"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="256" id="258"/>
+                            <outlet property="delegate" destination="256" id="259"/>
+                        </connections>
                     </tableView>
-                    <navigationItem title="Title" id="322" key="navigationItem"/>
+                    <navigationItem key="navigationItem" title="Title" id="322">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="yhJ-m9-j9H">
+                            <connections>
+                                <action selector="SaveTapped:" destination="256" id="Cfl-D4-SaS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ApnTextField" destination="616" id="Vur-ya-s22"/>
+                        <outlet property="AuthenticationTypeSegmentedControl" destination="662" id="1AI-6w-rje"/>
+                        <outlet property="NameTextField" destination="655" id="nwJ-eW-U2i"/>
+                        <outlet property="PasswordText" destination="657" id="vt4-Iy-7T5"/>
+                        <outlet property="UsernameTextField" destination="656" id="0vN-OB-fXB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="262" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="428" y="629"/>
+            <point key="canvasLocation" x="428" y="706"/>
         </scene>
     </scenes>
 </document>
