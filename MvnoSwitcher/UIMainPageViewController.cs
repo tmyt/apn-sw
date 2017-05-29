@@ -27,7 +27,7 @@ namespace MvnoSwitcher
             _done = new UIBarButtonItem(UIBarButtonSystemItem.Done, (s, e) =>
             {
                 TableView.SetEditing(false, true);
-                NavigationItem.LeftBarButtonItem = null;
+                NavigationItem.LeftBarButtonItem = _add;
                 NavigationItem.RightBarButtonItem = _edit;
             });
             _edit = new UIBarButtonItem(UIBarButtonSystemItem.Edit, (s, e) =>
@@ -37,10 +37,10 @@ namespace MvnoSwitcher
                     TableView.SetEditing(false, true);
                 }
                 TableView.SetEditing(true, true);
-                NavigationItem.LeftBarButtonItem = _add;
+                NavigationItem.LeftBarButtonItem = null;
                 NavigationItem.RightBarButtonItem = _done;
             });
-            NavigationItem.LeftBarButtonItem = null;
+            NavigationItem.LeftBarButtonItem = _add;
             NavigationItem.RightBarButtonItem = _edit;
         }
 
