@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="39">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="29">
+            <objects>
+                <tableViewController id="30" sceneMemberID="viewController" customClass="UIMainPageViewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="32">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="35" editingAccessoryType="disclosureIndicator">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="35" id="36">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue id="567" destination="256" kind="show" trigger="accessoryAction"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="30" id="33"/>
+                            <outlet property="delegate" destination="30" id="34"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="APNs" id="31"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="37" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="428" y="-47"/>
+        </scene>
+        <scene sceneID="38">
+            <objects>
+                <navigationController id="39" sceneMemberID="viewController" customClass="MSNavigationViewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="41">
+                        <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue id="386" destination="30" kind="relationship" relationship="rootViewController"/>
+                    </connections>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="42" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-352" y="-51"/>
+        </scene>
+        <scene sceneID="255">
+            <objects>
+                <tableViewController id="256" sceneMemberID="viewController" storyboardIdentifier="EditPage" customClass="MSEditPageViewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="257">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="256" id="258"/>
+                            <outlet property="delegate" destination="256" id="259"/>
+                        </connections>
+                        <sections>
+                            <tableViewSection id="264">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="569">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="569" id="570">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="648" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="21" y="0.0" width="105" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <constraints>
+                                                        <constraint id="666" firstItem="648" firstAttribute="height" constant="43"/>
+                                                        <constraint id="674" firstAttribute="width" constant="105"/>
+                                                        <constraint id="695" firstItem="648" firstAttribute="width" constant="105"/>
+                                                    </constraints>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="655" translatesAutoresizingMaskIntoConstraints="NO" placeholder="placeholder">
+                                                    <rect key="frame" x="134" y="0.0" width="450" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <constraints>
+                                                        <constraint id="669" firstItem="655" firstAttribute="height" constant="43"/>
+                                                    </constraints>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="672" firstItem="570" firstAttribute="bottom" secondItem="648" secondAttribute="bottom"/>
+                                                <constraint id="675" firstItem="570" firstAttribute="bottom" secondItem="655" secondAttribute="bottom"/>
+                                                <constraint id="676" firstItem="570" firstAttribute="trailing" secondItem="655" secondAttribute="trailing" constant="16"/>
+                                                <constraint id="694" firstItem="655" firstAttribute="leading" secondItem="648" secondAttribute="centerX" constant="60"/>
+                                                <constraint id="696" firstItem="648" firstAttribute="bottom" secondItem="570" secondAttribute="bottom"/>
+                                                <constraint id="697" firstItem="648" firstAttribute="leading" secondItem="570" secondAttribute="leading" constant="21"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="603" rowHeight="44">
+                                        <rect key="frame" x="0.0" y="44" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="603" id="604">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="615" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="21" y="0.0" width="105" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <constraints>
+                                                        <constraint id="667" firstItem="615" firstAttribute="height" constant="43"/>
+                                                        <constraint id="680" firstAttribute="width" constant="105"/>
+                                                    </constraints>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="616" translatesAutoresizingMaskIntoConstraints="NO" placeholder="placeholder">
+                                                    <rect key="frame" x="134" y="0.0" width="450" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <constraints>
+                                                        <constraint id="668" firstItem="616" firstAttribute="height" constant="43"/>
+                                                    </constraints>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="678" firstItem="604" firstAttribute="bottom" secondItem="615" secondAttribute="bottom"/>
+                                                <constraint id="679" firstItem="615" firstAttribute="leading" secondItem="604" secondAttribute="leading" constant="21"/>
+                                                <constraint id="681" firstItem="604" firstAttribute="bottom" secondItem="616" secondAttribute="bottom"/>
+                                                <constraint id="682" firstItem="604" firstAttribute="trailing" secondItem="616" secondAttribute="trailing" constant="16"/>
+                                                <constraint id="698" firstItem="616" firstAttribute="leading" secondItem="615" secondAttribute="centerX" constant="60"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="605" rowHeight="44">
+                                        <rect key="frame" x="0.0" y="88" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="605" id="606">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="652" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="21" y="0.0" width="105" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <constraints>
+                                                        <constraint id="707" firstAttribute="width" constant="105"/>
+                                                        <constraint id="708" firstAttribute="height" constant="43"/>
+                                                    </constraints>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="656" translatesAutoresizingMaskIntoConstraints="NO" placeholder="placeholder">
+                                                    <rect key="frame" x="134" y="0.0" width="450" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <constraints>
+                                                        <constraint id="670" firstItem="656" firstAttribute="height" constant="43"/>
+                                                    </constraints>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="684" firstItem="606" firstAttribute="bottom" secondItem="656" secondAttribute="bottom"/>
+                                                <constraint id="685" firstItem="606" firstAttribute="trailing" secondItem="656" secondAttribute="trailing" constant="16"/>
+                                                <constraint id="705" firstItem="652" firstAttribute="leading" secondItem="606" secondAttribute="leading" constant="21"/>
+                                                <constraint id="706" firstItem="606" firstAttribute="bottom" secondItem="652" secondAttribute="bottom"/>
+                                                <constraint id="717" firstItem="656" firstAttribute="leading" secondItem="652" secondAttribute="centerX" constant="60"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="607">
+                                        <rect key="frame" x="0.0" y="132" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="607" id="608">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="653" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="21" y="0.0" width="105" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <constraints>
+                                                        <constraint id="711" firstAttribute="width" constant="105"/>
+                                                        <constraint id="712" firstAttribute="height" constant="43"/>
+                                                    </constraints>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="657" translatesAutoresizingMaskIntoConstraints="NO" placeholder="placeholder">
+                                                    <rect key="frame" x="134" y="0.0" width="450" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <constraints>
+                                                        <constraint id="671" firstItem="657" firstAttribute="height" constant="43"/>
+                                                    </constraints>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="687" firstItem="608" firstAttribute="bottom" secondItem="657" secondAttribute="bottom"/>
+                                                <constraint id="688" firstItem="608" firstAttribute="trailing" secondItem="657" secondAttribute="trailing" constant="16"/>
+                                                <constraint id="709" firstItem="653" firstAttribute="leading" secondItem="608" secondAttribute="leading" constant="21"/>
+                                                <constraint id="710" firstItem="608" firstAttribute="bottom" secondItem="653" secondAttribute="bottom"/>
+                                                <constraint id="718" firstItem="657" firstAttribute="leading" secondItem="653" secondAttribute="centerX" constant="60"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="609">
+                                        <rect key="frame" x="0.0" y="176" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="609" id="610">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="654" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="21" y="0.0" width="105" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <constraints>
+                                                        <constraint id="715" firstAttribute="width" constant="105"/>
+                                                        <constraint id="716" firstAttribute="height" constant="43"/>
+                                                    </constraints>
+                                                </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="662" misplaced="YES">
+                                                    <rect key="frame" x="134" y="7" width="121" height="29"/>
+                                                    <segments>
+                                                        <segment title="PAP"/>
+                                                        <segment title="CHAP"/>
+                                                    </segments>
+                                                    <constraints>
+                                                        <constraint id="665" firstItem="662" firstAttribute="height" constant="28"/>
+                                                    </constraints>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="691" firstItem="662" firstAttribute="top" secondItem="610" secondAttribute="top" constant="7"/>
+                                                <constraint id="713" firstItem="654" firstAttribute="leading" secondItem="610" secondAttribute="leading" constant="21"/>
+                                                <constraint id="714" firstItem="610" firstAttribute="bottom" secondItem="654" secondAttribute="bottom"/>
+                                                <constraint id="720" firstItem="662" firstAttribute="leading" secondItem="654" secondAttribute="centerX" constant="60"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                    </tableView>
+                    <navigationItem title="Title" id="322" key="navigationItem"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="262" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="428" y="629"/>
+        </scene>
+    </scenes>
+</document>
