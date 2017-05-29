@@ -10,24 +10,24 @@ namespace MvnoSwitcher
         const string TableCell = "TableCell";
 
         private bool _editMode;
-        private UIBarButtonItem _add;
-        private UIBarButtonItem _done;
-        private UIBarButtonItem _edit;
+        private UIBarButtonItem _addButton;
+        private UIBarButtonItem _doneButton;
+        private UIBarButtonItem _editButton;
 
         public UIMainPageViewController(IntPtr handle) : base(handle)
         {
-            _add = new UIBarButtonItem(UIBarButtonSystemItem.Add, (s, e) =>
+            _addButton = new UIBarButtonItem(UIBarButtonSystemItem.Add, (s, e) =>
             {
                 OpenDetails(-1); // new
             });
-            _done = new UIBarButtonItem(UIBarButtonSystemItem.Done, (s, e) =>
+            _doneButton = new UIBarButtonItem(UIBarButtonSystemItem.Done, (s, e) =>
             {
                 TableView.SetEditing(false, true);
-                NavigationItem.LeftBarButtonItem = _add;
-                NavigationItem.RightBarButtonItem = _edit;
+                NavigationItem.LeftBarButtonItem = _addButton;
+                NavigationItem.RightBarButtonItem = _editButton;
                 _editMode = false;
             });
-            _edit = new UIBarButtonItem(UIBarButtonSystemItem.Edit, (s, e) =>
+            _editButton = new UIBarButtonItem(UIBarButtonSystemItem.Edit, (s, e) =>
             {
                 if (TableView.Editing)
                 {
@@ -35,11 +35,11 @@ namespace MvnoSwitcher
                 }
                 TableView.SetEditing(true, true);
                 NavigationItem.LeftBarButtonItem = null;
-                NavigationItem.RightBarButtonItem = _done;
+                NavigationItem.RightBarButtonItem = _doneButton;
                 _editMode = true;
             });
-            NavigationItem.LeftBarButtonItem = _add;
-            NavigationItem.RightBarButtonItem = _edit;
+            NavigationItem.LeftBarButtonItem = _addButton;
+            NavigationItem.RightBarButtonItem = _editButton;
         }
 
         public override nint RowsInSection(UITableView tableView, nint section)
