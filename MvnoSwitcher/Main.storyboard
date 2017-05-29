@@ -114,12 +114,12 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="648" secondAttribute="bottom" id="672"/>
-                                                <constraint firstAttribute="bottom" secondItem="655" secondAttribute="bottom" id="675"/>
-                                                <constraint firstAttribute="trailing" secondItem="655" secondAttribute="trailing" constant="16" id="676"/>
-                                                <constraint firstItem="655" firstAttribute="leading" secondItem="648" secondAttribute="centerX" constant="60" id="694"/>
-                                                <constraint firstItem="648" firstAttribute="bottom" secondItem="570" secondAttribute="bottom" id="696"/>
-                                                <constraint firstItem="648" firstAttribute="leading" secondItem="570" secondAttribute="leading" constant="21" id="697"/>
+                                                <constraint id="672" firstItem="570" firstAttribute="bottom" secondItem="648" secondAttribute="bottom"/>
+                                                <constraint id="675" firstItem="570" firstAttribute="bottom" secondItem="655" secondAttribute="bottom"/>
+                                                <constraint id="676" firstItem="570" firstAttribute="trailing" secondItem="655" secondAttribute="trailing" constant="16"/>
+                                                <constraint id="696" firstItem="648" firstAttribute="bottom" secondItem="570" secondAttribute="bottom"/>
+                                                <constraint id="697" firstItem="648" firstAttribute="leading" secondItem="570" secondAttribute="leading" constant="21"/>
+                                                <constraint id="736" firstItem="655" firstAttribute="leading" secondItem="648" secondAttribute="trailing" constant="8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -149,11 +149,11 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="615" secondAttribute="bottom" id="678"/>
-                                                <constraint firstItem="615" firstAttribute="leading" secondItem="604" secondAttribute="leading" constant="21" id="679"/>
-                                                <constraint firstAttribute="bottom" secondItem="616" secondAttribute="bottom" id="681"/>
-                                                <constraint firstAttribute="trailing" secondItem="616" secondAttribute="trailing" constant="16" id="682"/>
-                                                <constraint firstItem="616" firstAttribute="leading" secondItem="615" secondAttribute="centerX" constant="60" id="698"/>
+                                                <constraint id="678" firstItem="604" firstAttribute="bottom" secondItem="615" secondAttribute="bottom"/>
+                                                <constraint id="679" firstItem="615" firstAttribute="leading" secondItem="604" secondAttribute="leading" constant="21"/>
+                                                <constraint id="681" firstItem="604" firstAttribute="bottom" secondItem="616" secondAttribute="bottom"/>
+                                                <constraint id="682" firstItem="604" firstAttribute="trailing" secondItem="616" secondAttribute="trailing" constant="16"/>
+                                                <constraint id="735" firstItem="616" firstAttribute="leading" secondItem="615" secondAttribute="trailing" constant="8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -183,11 +183,11 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="656" secondAttribute="bottom" id="684"/>
-                                                <constraint firstAttribute="trailing" secondItem="656" secondAttribute="trailing" constant="16" id="685"/>
-                                                <constraint firstItem="652" firstAttribute="leading" secondItem="606" secondAttribute="leading" constant="21" id="705"/>
-                                                <constraint firstAttribute="bottom" secondItem="652" secondAttribute="bottom" id="706"/>
-                                                <constraint firstItem="656" firstAttribute="leading" secondItem="652" secondAttribute="centerX" constant="60" id="717"/>
+                                                <constraint id="684" firstItem="606" firstAttribute="bottom" secondItem="656" secondAttribute="bottom"/>
+                                                <constraint id="685" firstItem="606" firstAttribute="trailing" secondItem="656" secondAttribute="trailing" constant="16"/>
+                                                <constraint id="705" firstItem="652" firstAttribute="leading" secondItem="606" secondAttribute="leading" constant="21"/>
+                                                <constraint id="706" firstItem="606" firstAttribute="bottom" secondItem="652" secondAttribute="bottom"/>
+                                                <constraint id="734" firstItem="656" firstAttribute="leading" secondItem="652" secondAttribute="trailing" constant="8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -217,11 +217,11 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="657" secondAttribute="bottom" id="687"/>
-                                                <constraint firstAttribute="trailing" secondItem="657" secondAttribute="trailing" constant="16" id="688"/>
-                                                <constraint firstItem="653" firstAttribute="leading" secondItem="608" secondAttribute="leading" constant="21" id="709"/>
-                                                <constraint firstAttribute="bottom" secondItem="653" secondAttribute="bottom" id="710"/>
-                                                <constraint firstItem="657" firstAttribute="leading" secondItem="653" secondAttribute="centerX" constant="60" id="718"/>
+                                                <constraint id="687" firstItem="608" firstAttribute="bottom" secondItem="657" secondAttribute="bottom"/>
+                                                <constraint id="688" firstItem="608" firstAttribute="trailing" secondItem="657" secondAttribute="trailing" constant="16"/>
+                                                <constraint id="709" firstItem="653" firstAttribute="leading" secondItem="608" secondAttribute="leading" constant="21"/>
+                                                <constraint id="710" firstItem="608" firstAttribute="bottom" secondItem="653" secondAttribute="bottom"/>
+                                                <constraint id="733" firstItem="657" firstAttribute="leading" secondItem="653" secondAttribute="trailing" constant="8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -241,22 +241,37 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="662">
-                                                    <rect key="frame" x="134" y="7" width="121" height="29"/>
+                                                <view contentMode="scaleToFill" id="751" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="134" y="0.0" width="466" height="43"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <subviews>
+                                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="662" verticalHuggingPriority="1" horizontalHuggingPriority="1" misplaced="YES">
+                                                            <rect key="frame" x="172" y="7" width="121" height="29"/>
+                                                            <segments>
+                                                                <segment title="PAP"/>
+                                                                <segment title="CHAP"/>
+                                                            </segments>
+                                                            <constraints>
+                                                                <constraint id="665" firstItem="662" firstAttribute="height" constant="28" ibExternalInspectedSegment="2"/>
+                                                                <constraint id="748" firstAttribute="width" constant="121" ibExternalInspectedSegment="2"/>
+                                                            </constraints>
+                                                        </segmentedControl>
+                                                    </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="28" id="665"/>
+                                                        <constraint id="759" firstAttribute="height" constant="43"/>
+                                                        <constraint id="764" firstItem="751" firstAttribute="centerX" secondItem="662" secondAttribute="centerX"/>
+                                                        <constraint id="765" firstItem="662" firstAttribute="centerY" secondItem="751" secondAttribute="centerY"/>
                                                     </constraints>
-                                                    <segments>
-                                                        <segment title="PAP"/>
-                                                        <segment title="CHAP"/>
-                                                    </segments>
-                                                </segmentedControl>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="662" firstAttribute="top" secondItem="610" secondAttribute="top" constant="7" id="691"/>
-                                                <constraint firstItem="654" firstAttribute="leading" secondItem="610" secondAttribute="leading" constant="21" id="713"/>
-                                                <constraint firstAttribute="bottom" secondItem="654" secondAttribute="bottom" id="714"/>
-                                                <constraint firstItem="662" firstAttribute="leading" secondItem="654" secondAttribute="centerX" constant="60" id="720"/>
+                                                <constraint id="713" firstItem="654" firstAttribute="leading" secondItem="610" secondAttribute="leading" constant="21"/>
+                                                <constraint id="714" firstItem="610" firstAttribute="bottom" secondItem="654" secondAttribute="bottom"/>
+                                                <constraint id="757" firstItem="610" firstAttribute="bottom" secondItem="751" secondAttribute="bottom"/>
+                                                <constraint id="762" firstItem="751" firstAttribute="leading" secondItem="654" secondAttribute="trailing" constant="8"/>
+                                                <constraint id="763" firstItem="610" firstAttribute="trailing" secondItem="751" secondAttribute="trailing">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                                                </constraint>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -288,4 +303,7 @@
             <point key="canvasLocation" x="428" y="706"/>
         </scene>
     </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
 </document>
