@@ -46,6 +46,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="APNs" id="31"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -63,6 +64,7 @@
                     </connections>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="42" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -288,6 +290,7 @@
                         <outlet property="PasswordText" destination="657" id="name-outlet-657"/>
                         <outlet property="AuthenticationTypeSegmentedControl" destination="662" id="name-outlet-662"/>
                     </connections>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="262" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
