@@ -95,10 +95,6 @@
     <Compile Include="MSEditPageViewController.designer.cs">
       <DependentUpon>MSEditPageViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="MSMainPageViewController_.cs" />
-    <Compile Include="MSMainPageViewController_.designer.cs">
-      <DependentUpon>MSMainPageViewController_.cs</DependentUpon>
-    </Compile>
     <Compile Include="MSNavigationViewController.cs" />
     <Compile Include="MSNavigationViewController.designer.cs">
       <DependentUpon>MSNavigationViewController.cs</DependentUpon>
