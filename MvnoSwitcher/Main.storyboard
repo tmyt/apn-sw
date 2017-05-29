@@ -37,9 +37,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue id="567" destination="256" kind="show" trigger="accessoryAction"/>
-                                </connections>
+                                <connections/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
