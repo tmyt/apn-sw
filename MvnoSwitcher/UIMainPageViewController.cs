@@ -87,7 +87,13 @@ namespace MvnoSwitcher
             tableView.DeselectRow(indexPath, true);
             if (tableView.Editing)
             {
-
+                // open details
+                var storyboard = UIStoryboard.FromName("Main", null);
+                var viewController = (MSEditPageViewController)storyboard.InstantiateViewController("EditPage");
+                viewController.IsNew = false;
+                viewController.Config = AppDelegate.Current.AppConfig.Apns[indexPath.Row];
+                viewController.Index = indexPath.Row;
+                NavigationController.PushViewController(viewController, true);
             }
             else
             {
@@ -97,16 +103,6 @@ namespace MvnoSwitcher
                 var url = new NSUrl($"http://127.0.0.1:18080/ondemand?{argString}");
                 UIApplication.SharedApplication.OpenUrl(url);
             }
-        }
-
-        public override void AccessoryButtonTapped(UITableView tableView, NSIndexPath indexPath)
-        {
-            var storyboard = UIStoryboard.FromName("Main", null);
-            var viewController = (MSEditPageViewController)storyboard.InstantiateViewController("EditPage");
-            viewController.IsNew = false;
-            viewController.Config = AppDelegate.Current.AppConfig.Apns[indexPath.Row];
-            viewController.Index = indexPath.Row;
-            NavigationController.PushViewController(viewController, true);
         }
     }
 }
