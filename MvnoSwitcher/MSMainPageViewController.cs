@@ -42,6 +42,12 @@ namespace MvnoSwitcher
             NavigationItem.RightBarButtonItem = _editButton;
         }
 
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            TableView.ReloadData();
+        }
+
         public override nint RowsInSection(UITableView tableView, nint section)
         {
             return AppDelegate.Current.AppConfig.Apns.Count;

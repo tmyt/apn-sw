@@ -41,6 +41,7 @@ namespace MvnoSwitcher
                 appConfig.Apns.Add(Config);
             }
             appConfig.Save();
+            NavigationController.PopViewController(true);
         }
 
         partial void NameTextFieldChanged(UITextField sender)
