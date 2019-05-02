@@ -65,11 +65,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
-    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchArch>ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <BuildIpa>True</BuildIpa>
-    <CodesignProvision>cdc909cd-d593-410a-8855-eeb15b55f14d</CodesignProvision>
+    <CodesignProvision>iPhone</CodesignProvision>
     <CodesignKey>iPhone Developer: Yutaka Tsumori (52H8587U48)</CodesignKey>
+    <MtouchSdkVersion>12.1</MtouchSdkVersion>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
     <DebugType>none</DebugType>

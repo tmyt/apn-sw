@@ -32,6 +32,10 @@ namespace MvnoSwitcher
         [Outlet]
         UIKit.UITextField UsernameTextField { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UISegmentedControl ProtocolTypeSegmentedControl { get; set; }
+
 
         [Action ("SaveTapped:")]
         partial void SaveTapped (Foundation.NSObject sender);
@@ -60,6 +64,11 @@ namespace MvnoSwitcher
             if (PasswordText != null) {
                 PasswordText.Dispose ();
                 PasswordText = null;
+            }
+
+            if (ProtocolTypeSegmentedControl != null) {
+                ProtocolTypeSegmentedControl.Dispose ();
+                ProtocolTypeSegmentedControl = null;
             }
 
             if (UsernameTextField != null) {

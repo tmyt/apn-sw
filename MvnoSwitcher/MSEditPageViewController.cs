@@ -1,11 +1,15 @@
 ﻿using MvnoSwitcher.MobileConfig;
 using System;
+using System.Collections.Generic;
 using UIKit;
 
 namespace MvnoSwitcher
 {
     public partial class MSEditPageViewController : UITableViewController
     {
+        private static readonly List<string> AuthTypes = new List<string> { "PAP", "CHAP" };
+        private static readonly List<int> Masks = new List<int>{ 1, 2, 3 };
+
         public MSEditPageViewController(IntPtr handle) : base(handle)
         {
         }
@@ -21,7 +25,8 @@ namespace MvnoSwitcher
             ApnTextField.Text = Config.Apn;
             UsernameTextField.Text = Config.Username;
             PasswordText.Text = Config.Password;
-            AuthenticationTypeSegmentedControl.SelectedSegment = Config.AuthenticationType == "PAP" ? 0 : 1;
+            AuthenticationTypeSegmentedControl.SelectedSegment = AuthTypes.IndexOf(Config.AuthenticationType);
+            ProtocolTypeSegmentedControl.SelectedSegment = Masks.IndexOf(Config.ProtocolMask);
             Title = string.IsNullOrEmpty(Config.Name) ? "Config" : Config.Name;
         }
 
@@ -31,10 +36,8 @@ namespace MvnoSwitcher
             Config.Apn = ApnTextField.Text;
             Config.Username = UsernameTextField.Text;
             Config.Password = PasswordText.Text;
-
-            int authIndex = (int)AuthenticationTypeSegmentedControl.SelectedSegment;
-            Config.AuthenticationType = (authIndex == 1) ? "CHAP" : "PAP";
-
+            Config.AuthenticationType = AuthTypes[(int)AuthenticationTypeSegmentedControl.SelectedSegment]; 
+            Config.ProtocolMask = Masks[(int)ProtocolTypeSegmentedControl.SelectedSegment];
 
             var appConfig = (UIApplication.SharedApplication.Delegate as AppDelegate).AppConfig;
             if (IsNew)

@@ -14,6 +14,13 @@ namespace MvnoSwitcher.MobileConfig
         public string Username { get; set; }
         public string Password { get; set; }
         public string Apn { get; set; }
+		public int ProtocolMask { get; set; }
+
+        public ConfigGenerator()
+        {
+            AuthenticationType = "CHAP";
+            ProtocolMask = 3;
+        }
 
         public string Generate()
         {
@@ -26,6 +33,8 @@ namespace MvnoSwitcher.MobileConfig
                         .Append("AuthenticationType", AuthenticationType)
                         .Append("Username", Username)
                         .Append("Password", Password)
+                        .Append("DefaultProtocolMask", ProtocolMask)
+                        .Append("AllowedProtocolMask", ProtocolMask)
                     )
                     .Append("APNs",
                         new PlistArray().Append(
@@ -33,6 +42,8 @@ namespace MvnoSwitcher.MobileConfig
                             .Append("AuthenticationType", AuthenticationType)
                             .Append("Username", Username)
                             .Append("Password", Password)
+                            .Append("DefaultProtocolMask", ProtocolMask)
+                            .Append("AllowedProtocolMask", ProtocolMask)
                         )
                     )
                     .Append("PayloadDescription", "Provides customization of carrier Access Point Name.")
