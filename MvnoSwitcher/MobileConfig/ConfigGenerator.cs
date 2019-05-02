@@ -19,9 +19,6 @@ namespace MvnoSwitcher.MobileConfig
         {
             var plist = new PlistRoot();
             var root = (PlistDict)(plist.Content = new PlistDict());
-            root.Append("ConsentText",
-                new PlistDict().Append("default", Name)
-            );
             root.Append("PayloadContent",
                 new PlistArray().Append(
                     new PlistDict().Append("AttachAPN",
@@ -47,7 +44,7 @@ namespace MvnoSwitcher.MobileConfig
                     .Append("PayloadVersion", 1)
                 )
             );
-            root.Append("PayloadDescription", Name);
+			root.Append("PayloadDescription", $"APN config for {Name}");
             root.Append("PayloadDisplayName", $"{Name} ({Apn})");
             root.Append("PayloadIdentifier", $"mo.{Apn}.generated");
             root.Append("PayloadOrganization", "MvnoSwitcher");
