@@ -3,3 +3,6 @@ obj
 *.user
 .vs
 packages
+*.DS_Store
+*.userprefs
+._*

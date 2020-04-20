@@ -15,6 +15,12 @@ namespace MvnoSwitcher
             Apns = new List<ConfigGenerator>();
         }
 
+        public void AddConfig(ConfigGenerator config)
+        {
+            Apns.Add(config);
+            Save();
+        }
+
         public void Save()
         {
             var json = JsonConvert.SerializeObject(Apns);

@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using MvnoSwitcher.Extensions;
 using MvnoSwitcher.MobileConfig;
 using System;
 using UIKit;
@@ -18,7 +19,7 @@ namespace MvnoSwitcher
         {
             _addButton = new UIBarButtonItem(UIBarButtonSystemItem.Add, (s, e) =>
             {
-                OpenDetails(-1); // new
+                CreateNew(); // new
             });
             _doneButton = new UIBarButtonItem(UIBarButtonSystemItem.Done, (s, e) =>
             {
@@ -58,18 +59,13 @@ namespace MvnoSwitcher
             var cell = tableView.DequeueReusableCell(TableCell);
             var apn = AppDelegate.Current.AppConfig.Apns[indexPath.Row];
             cell.TextLabel.Text = apn.Name;
-            cell.DetailTextLabel.Text = apn.Apn;
+            cell.DetailTextLabel.Text = string.IsNullOrEmpty(apn.Apn) ? "(none)" : apn.Apn;
             return cell;
         }
 
         public override bool CanEditRow(UITableView tableView, NSIndexPath indexPath)
         {
             return true;
-        }
-
-        public override nfloat GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
-        {
-            return 58;
         }
 
         public override UITableViewRowAction[] EditActionsForRow(UITableView tableView, NSIndexPath indexPath)
@@ -107,14 +103,30 @@ namespace MvnoSwitcher
             }
         }
 
+        public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
+        {
+            segue.HandlePrepare(sender);
+        }
+
         private void OpenDetails(int index)
         {
-            var storyboard = UIStoryboard.FromName("Main", null);
-            var viewController = (MSEditPageViewController)storyboard.InstantiateViewController("EditPage");
-            viewController.IsNew = index < 0;
-            viewController.Config = index < 0 ? new ConfigGenerator() : AppDelegate.Current.AppConfig.Apns[index];
-            viewController.Index = index;
-            NavigationController.PushViewController(viewController, true);
+            this.PerformSegue<MSEditPageViewController>("EditAPN", vc =>
+            {
+                vc.IsNew = false;
+                vc.Config = AppDelegate.Current.AppConfig.Apns[index];
+                vc.Index = index;
+            });
+        }
+
+        private void CreateNew()
+        {
+            this.PerformSegue<UINavigationController>("NewAPN", nav =>
+            {
+                var vc = (MSEditPageViewController)nav.TopViewController;
+                vc.IsNew = true;
+                vc.Config = new ConfigGenerator();
+                vc.Index = -1;
+            });
         }
     }
 }

@@ -93,22 +93,35 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="MobileConfig\ConfigGenerator.cs" />
-    <Compile Include="MSEditPageViewController.cs" />
-    <Compile Include="MSEditPageViewController.designer.cs">
-      <DependentUpon>MSEditPageViewController.cs</DependentUpon>
+    <Compile Include="ViewControllers\MSAuthenticationTypeViewController.cs" />
+    <Compile Include="ViewControllers\MSAuthenticationTypeViewController.designer.cs">
+      <DependentUpon>MSAuthenticationTypeViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="MSNavigationViewController.cs" />
-    <Compile Include="MSNavigationViewController.designer.cs">
-      <DependentUpon>MSNavigationViewController.cs</DependentUpon>
+    <Compile Include="ViewControllers\MSProtocolTypeViewController.cs" />
+    <Compile Include="ViewControllers\MSProtocolTypeViewController.designer.cs">
+      <DependentUpon>MSProtocolTypeViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Plist\PlistXml.cs" />
-    <Compile Include="MSMainPageViewController.cs" />
-    <Compile Include="MSMainPageViewController.designer.cs">
-      <DependentUpon>MSMainPageViewController.cs</DependentUpon>
-    </Compile>
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
+    <Compile Include="Extensions\ObjectExtension.cs" />
+    <Compile Include="Extensions\UIViewControllerExtension.cs" />
+    <Compile Include="Extensions\UIStoryboardSegueExtension.cs" />
+    <Compile Include="Extensions\NSObjectExtension.cs" />
+    <Compile Include="ViewControllers\MSEditPageViewController.cs" />
+    <Compile Include="ViewControllers\MSEditPageViewController.designer.cs">
+      <DependentUpon>MSEditPageViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\MSMainPageViewController.cs" />
+    <Compile Include="ViewControllers\MSMainPageViewController.designer.cs">
+      <DependentUpon>MSMainPageViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\MSNavigationViewController.cs" />
+    <Compile Include="ViewControllers\MSNavigationViewController.designer.cs">
+      <DependentUpon>MSNavigationViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\UITableViewCellExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard">
@@ -138,6 +151,7 @@
   <ItemGroup>
     <Content Include="Entitlements.plist" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
