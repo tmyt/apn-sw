@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvnoSwitcher", "MvnoSwitcher\MvnoSwitcher.csproj", "{3EA32799-8A00-4341-B35F-BC76EEDEAF7B}"
 EndProject
@@ -27,14 +27,19 @@ Global
 		{3EA32799-8A00-4341-B35F-BC76EEDEAF7B}.AppStore|iPhoneSimulator.Build.0 = AppStore|iPhoneSimulator
 		{3EA32799-8A00-4341-B35F-BC76EEDEAF7B}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{3EA32799-8A00-4341-B35F-BC76EEDEAF7B}.Debug|iPhone.Build.0 = Debug|iPhone
+		{3EA32799-8A00-4341-B35F-BC76EEDEAF7B}.Debug|iPhone.Deploy.0 = Debug|iPhone
 		{3EA32799-8A00-4341-B35F-BC76EEDEAF7B}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
 		{3EA32799-8A00-4341-B35F-BC76EEDEAF7B}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
 		{3EA32799-8A00-4341-B35F-BC76EEDEAF7B}.Release|iPhone.ActiveCfg = Release|iPhone
 		{3EA32799-8A00-4341-B35F-BC76EEDEAF7B}.Release|iPhone.Build.0 = Release|iPhone
+		{3EA32799-8A00-4341-B35F-BC76EEDEAF7B}.Release|iPhone.Deploy.0 = Release|iPhone
 		{3EA32799-8A00-4341-B35F-BC76EEDEAF7B}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{3EA32799-8A00-4341-B35F-BC76EEDEAF7B}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88540890-00C9-457C-99D3-BAA685F84414}
 	EndGlobalSection
 EndGlobal

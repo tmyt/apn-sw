@@ -2,6 +2,7 @@
 using MvnoSwitcher.Extensions;
 using MvnoSwitcher.MobileConfig;
 using System;
+using System.Collections.Generic;
 using UIKit;
 
 namespace MvnoSwitcher
@@ -9,6 +10,19 @@ namespace MvnoSwitcher
     public partial class MSMainPageViewController : UITableViewController
     {
         const string TableCell = "TableCell";
+
+#if false
+        private bool _isManaged = true;
+#else
+        private bool _isManaged = false;
+#endif
+        private List<ConfigGenerator> _managedConfigs = new List<ConfigGenerator>{
+            new ConfigGenerator
+            {
+                Name = "Internal APN",
+                Apn = "internal.example.com",
+            },
+        };
 
         private bool _editMode;
         private UIBarButtonItem _addButton;
@@ -49,15 +63,27 @@ namespace MvnoSwitcher
             TableView.ReloadData();
         }
 
+        public override nint NumberOfSections(UITableView tableView)
+        {
+            return _isManaged ? 2 : 1;
+        }
+
         public override nint RowsInSection(UITableView tableView, nint section)
         {
+            if (_isManaged && section == 0) return _managedConfigs.Count;
             return AppDelegate.Current.AppConfig.Apns.Count;
+        }
+
+        public override string TitleForHeader(UITableView tableView, nint section)
+        {
+            if (!_isManaged) return null;
+            return section == 0 ? "組織管理" : "ユーザー定義";
         }
 
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
             var cell = tableView.DequeueReusableCell(TableCell);
-            var apn = AppDelegate.Current.AppConfig.Apns[indexPath.Row];
+            var apn = GetConfigForIndexPath(indexPath);
             cell.TextLabel.Text = apn.Name;
             cell.DetailTextLabel.Text = string.IsNullOrEmpty(apn.Apn) ? "(none)" : apn.Apn;
             return cell;
@@ -65,6 +91,7 @@ namespace MvnoSwitcher
 
         public override bool CanEditRow(UITableView tableView, NSIndexPath indexPath)
         {
+            if (_isManaged && indexPath.Section == 0) return false;
             return true;
         }
 
@@ -90,13 +117,14 @@ namespace MvnoSwitcher
             tableView.DeselectRow(indexPath, true);
             if (tableView.Editing)
             {
+                if (_isManaged && indexPath.Section == 0) return;
                 // open details
                 OpenDetails(indexPath.Row);
             }
             else
             {
                 // open safari
-                var apn = AppDelegate.Current.AppConfig.Apns[indexPath.Row];
+                var apn = GetConfigForIndexPath(indexPath);
                 var argString = apn.GetQueryString(AppDelegate.Current.HttpServer.Token);
                 var url = new NSUrl($"http://127.0.0.1:18080/ondemand?{argString}");
                 UIApplication.SharedApplication.OpenUrl(url);
@@ -127,6 +155,18 @@ namespace MvnoSwitcher
                 vc.Config = new ConfigGenerator();
                 vc.Index = -1;
             });
+        }
+
+        private ConfigGenerator GetConfigForIndexPath(NSIndexPath indexPath)
+        {
+            return GetConfigsForSection(indexPath.Section)[indexPath.Row];
+        }
+
+        private List<ConfigGenerator> GetConfigsForSection(int section)
+        {
+            var apns = AppDelegate.Current.AppConfig.Apns;
+            if (!_isManaged) return apns;
+            return section == 0 ? _managedConfigs : apns;
         }
     }
 }
